@@ -1,0 +1,8 @@
+To execute everything:
+    In 2 seperate consoles:
+        First run: python manage.py runserver
+        
+        Then run: celery -A TODO worker --pool=solo -l info
+        
+Celery is setup for RabbitMQ 3.7.9 (requires Erlang)
+Available user account for django is is admin:admin

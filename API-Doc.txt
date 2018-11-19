@@ -1,0 +1,31 @@
+API - Documentation:
+
+    API is read only without authentification.
+    Example with httpie (Web-API accessible, same URLS):
+        
+        List all Boards:
+                http http://127.0.0.1:8000/boards/ Accept:application/json
+        Add a new Board:
+                http POST http://127.0.0.1:8000/boards/ name="Board Name" -a user:pass
+        Change a board's title:
+                http PUT http://127.0.0.1:8000/boards/pk/ name="New Name" -a user:pass
+        Remove a board:
+                http DELETE http://127.0.0.1:8000/boards/pk/ -a user:pass
+        List all TODOs:
+                http http://127.0.0.1:8000/boards/pk/ Accept:application/json
+        List only uncompleted TODOs:
+                http http://127.0.0.1:8000/boards/pk/nc/ Accept:application/json
+        Add TODOs to a board:
+                http POST http://127.0.0.1:8000/todos/ board=pk title="Titel" done=BOOLEAN created=YYYY-MM-DDTHH:mm:ssZ updated=YYYY-MM-DDTHH:mm:ssZ -a user:pass
+        Change TODOs title or status:
+                http PUT http://127.0.0.1:8000/todos/pk/ board=pk title="Titel" done=BOOLEAN -a user:pass
+        Delete a TODO:
+                http DELETE http://127.0.0.1:8000/todos/pk/ -a user:pass
+                
+        
+        List all reminders:
+                http http://127.0.0.1:8000/reminders/ Accept:application/json
+        Add a new reminder (email is setup on post request):
+                http POST http://127.0.0.1:8000/reminders/ email="mail@example.com" text="This is the reminder text" delay=YYYY-MM-DDTHH:mm:ss -a user:pass
+        Remove a reminder:
+                http DELETE http://127.0.0.1:8000/reminders/pk/ -a user:pass
